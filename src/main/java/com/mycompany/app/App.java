@@ -3,7 +3,7 @@ package com.mycompany.app;
 import java.util.ArrayList;
 
 /**
- * Hello world!
+ * Hello world! 
  *
  */
 public class App 
