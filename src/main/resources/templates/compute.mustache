@@ -1,8 +1,7 @@
 <title>My application</title>
     <h1>Lottery</h1>
-    Winner is {{ winners }}
-
-
+    Winners <br/>
+    {{ winners }}
     <form action="compute" method="post">
         <label>Enter users <code>[Name] [Ticket Weight=1|2|4]</code></label>
         <textarea name="users" rows="10" cols="30">
@@ -11,10 +10,12 @@
         Veli 4
         Mehmet Ali 2
         </textarea>
+        <br/>
         <label>Winner Count</label>
-        <input name="winnerCount" type="number" min="0">
+        <input name="winnerCount" type="number" min="0"> value="2">
+        <br/>
         <label>Total Money</label>
-        <input name="totalMoney" type="number" min="0">
+        <input name="totalMoney" type="number" min="0" value="16000">
         <br>
         <input type="submit">
     </form>
