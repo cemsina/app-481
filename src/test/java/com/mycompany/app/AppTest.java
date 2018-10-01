@@ -2,7 +2,15 @@ package com.mycompany.app;
 import junit.framework.TestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 public class AppTest extends TestCase{
+  public void testLottery(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(users, weights, 2, 4000);
+    System.out.println(map.toString());
+    assertTrue(true);
+  }	
 	public void testFound() {
       ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4));
       assertTrue(App.search(array, 4));
