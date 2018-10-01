@@ -105,11 +105,17 @@ public class App {
 		port(getHerokuAssignedPort());
 		get("/", (req, res) -> "Hello, World");
 		post("/compute", (req, res) -> {
+      Map<String,String> map = App.lotteryRequestParser(req);
+      map.put("users",req.queryParams("users"));
+      map.put("winnerCount",req.queryParams("winnerCount"));
+      map.put("totalMoney",req.queryParams("totalMoney"));
 			return new ModelAndView(App.lotteryRequestParser(req), "compute.mustache");
 		}, new MustacheTemplateEngine());
 		get("/compute", (rq, rs) -> {
-			Map map = new HashMap();
-			map.put("result", "not computed yet!");
+      Map map = new HashMap();
+      map.put("users","Ornek 1\r\nAhmet 2\r\nVeli 4\r\nMehmet Ali 2");
+      map.put("winnerCount","2");
+      map.put("totalMoney","16000");
 			return new ModelAndView(map, "compute.mustache");
 		}, new MustacheTemplateEngine());
 	}

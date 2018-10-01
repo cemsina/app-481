@@ -4,18 +4,13 @@
     {{ winners }}
     <form action="compute" method="post">
         <label>Enter users <code>[Name] [Ticket Weight=1|2|4]</code></label>
-        <textarea name="users" rows="10" cols="30">
-Ornek 1
-Ahmet 2
-Veli 4
-Mehmet Ali 2
-        </textarea>
+        <textarea name="users" rows="10" cols="30">{{users}}</textarea>
         <br/>
         <label>Winner Count</label>
-        <input name="winnerCount" type="number" min="0" value="2">
+        <input name="winnerCount" type="number" min="0" value="{{winnerCount}}">
         <br/>
         <label>Total Money</label>
-        <input name="totalMoney" type="number" min="0" value="16000">
+        <input name="totalMoney" type="number" min="0" value="{{totalMoney}}">
         <br>
         <input type="submit">
     </form>
