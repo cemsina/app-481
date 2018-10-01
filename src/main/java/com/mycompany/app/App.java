@@ -28,7 +28,7 @@ public class App {
       port(getHerokuAssignedPort());
 
       get("/", (req, res) -> "Hello, World");
-      /*
+      
       post("/compute", (req, res) -> {
         //System.out.println(req.queryParams("input1"));
         //System.out.println(req.queryParams("input2"));
@@ -63,7 +63,7 @@ public class App {
             return new ModelAndView(map, "compute.mustache");
           },
           new MustacheTemplateEngine());
-      */
+      
   }
 
   static int getHerokuAssignedPort() {
