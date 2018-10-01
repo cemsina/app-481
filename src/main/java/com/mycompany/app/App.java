@@ -109,7 +109,7 @@ public class App {
       map.put("users",req.queryParams("users"));
       map.put("winnerCount",req.queryParams("winnerCount"));
       map.put("totalMoney",req.queryParams("totalMoney"));
-			return new ModelAndView(App.lotteryRequestParser(req), "compute.mustache");
+			return new ModelAndView(map, "compute.mustache");
 		}, new MustacheTemplateEngine());
 		get("/compute", (rq, rs) -> {
       Map map = new HashMap();
