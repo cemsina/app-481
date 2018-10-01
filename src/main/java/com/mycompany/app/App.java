@@ -62,7 +62,9 @@ public class App {
 		}catch(NumberFormatException e) {
 			
 		}
-		Map<Integer,Integer> map = lottery(usersIndexes,weights,winnerCount,totalMoney);
+    Map<Integer,Integer> map = lottery(usersIndexes,weights,winnerCount,totalMoney);
+    if(map == null)
+      return new HashMap<String,String>();
 		String winners = "";
 		Set<Integer> keys = map.keySet();
 		for(Integer k : keys) {
