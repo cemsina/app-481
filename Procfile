@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* App
+web: java -jar target/myDemoApp-1.0-SNAPSHOT.jar
