@@ -66,7 +66,7 @@ public class App {
 		String winners = "";
 		Set<Integer> keys = map.keySet();
 		for(Integer k : keys) {
-			winners += names.get(k)+" : "+map.get(k) + "<br/>";
+			winners += names.get(k)+" : "+map.get(k) + "\n";
 		}
 		Map<String,String> m = new HashMap<String,String>();
 		m.put("winners", winners);
