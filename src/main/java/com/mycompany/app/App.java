@@ -75,7 +75,7 @@ public class App {
 		return m;
 	}
 	public static Map<Integer, Integer> lottery(ArrayList<Integer> users, ArrayList<Integer> ticketWeights, int winnerCount, int totalMoney) {
-		if (users == null || ticketWeights == null || winnerCount > users.size()
+		if (users == null || ticketWeights == null || winnerCount > users.size() || winnerCount < 0
 				|| ticketWeights.size() != users.size())
 			return null;
 		int usersLength = users.size();

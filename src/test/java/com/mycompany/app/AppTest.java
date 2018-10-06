@@ -4,30 +4,54 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 public class AppTest extends TestCase{
-  public void testLottery(){
+  public void testLotteryWinnersCount(){
     ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
     ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
     Map<Integer,Integer> map = App.lottery(users, weights, 2, 4000);
-    System.out.println(map.toString());
-    assertTrue(true);
+    assertTrue(map.keySet().size() == 2);
   }	
-	public void testFound() {
-      ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(App.search(array, 4));
+  public void testLotteryWinnersMoneyAmount(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(users, weights, 2, 4000);
+    int sum = 0;
+    int winnersWeight = 0;
+    int sumWithWeights = 0;
+    for(int winner : map.keySet()){
+      winnersWeight += (weights.get(winner));
     }
-
-    public void testNotFound() {
-      ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(App.search(array, 5));
+    for(int winner : map.keySet()){
+      sumWithWeights += (int)(((double)weights.get(winner)/winnersWeight)*4000);
     }
-
-    public void testEmptyArray() {
-      ArrayList<Integer> array = new ArrayList<Integer>();
-      assertFalse(App.search(array, 1));
+    for(int money : map.values()){
+      sum += money;
     }
-
-    public void testNull() {
-      assertFalse(App.search(null, 1));
-    }
-
+    System.out.println(sumWithWeights);
+    System.out.println(sum);
+    assertTrue(sumWithWeights == sum);
+  }	
+  public void testLotteryWinnersCountBiggerThanUsersSize(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(users, weights, 6, 4000);
+    assertTrue(map == null);
+  }	
+  public void testLotteryNullUsers(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(null, weights, 6, 4000);
+    assertTrue(map == null);
+  }	
+  public void testLotteryNullWeights(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(users, null, 6, 4000);
+    assertTrue(map == null);
+  }	
+  public void testLotteryWinnersCountNegative(){
+    ArrayList<Integer> users = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+    ArrayList<Integer> weights = new ArrayList<Integer>(Arrays.asList(1,1,2,4,1));
+    Map<Integer,Integer> map = App.lottery(users, weights, -1, 4000);
+    assertTrue(map == null);
+  }
 }
